@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Nikolai Neufeld
+N:Neufeld;Nikolai;;;
+ORG:GAN GmbH
+TITLE:Geschäftsführer
+TEL;TYPE=CELL:+491719760113
+EMAIL:info@gan.gmbh
+ADR;TYPE=WORK:;;Rom 13;Morsbach;;51597;Deutschland
+URL:https://www.gan.gmbh
+END:VCARD
