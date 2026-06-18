@@ -90,11 +90,25 @@
 
     /* REFERENZEN */
     #referenzen { background: var(--bg); }
-    .ref-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
-    .ref-card { border: 1px solid var(--line); padding: 1.5rem 1.75rem; background: var(--bg2); }
-    .ref-card .ref-type { font-family: var(--mono); font-size: 0.68rem; color: var(--gan); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .ref-card h3 { font-size: 0.95rem; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; }
-    .ref-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+    .ref-featured { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem; }
+    .ref-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 1.25rem; }
+    .ref-card { border: 1px solid var(--line); padding: 1.5rem 1.75rem; background: var(--bg2); display: flex; flex-direction: column; gap: 0.9rem; transition: border-color 0.2s; }
+    .ref-card:hover { border-color: var(--gan2); }
+    .ref-card.featured { border-color: var(--line); background: var(--bg3); }
+    .ref-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .ref-type { font-family: var(--mono); font-size: 0.68rem; color: var(--gan); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    .ref-card h3 { font-size: 0.95rem; font-weight: 500; color: var(--text); line-height: 1.4; }
+    .ref-card p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; flex: 1; }
+    .ref-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
+    .ref-tag { font-family: var(--mono); font-size: 0.65rem; padding: 0.2rem 0.55rem; border: 1px solid var(--line); color: var(--muted); letter-spacing: 0.04em; }
+    .ref-partner { font-family: var(--mono); font-size: 0.68rem; color: var(--accent2); padding-top: 0.6rem; border-top: 1px solid var(--line); }
+    
+    @media (max-width: 768px) {
+      .ref-featured { grid-template-columns: 1fr; }
+      .ref-row { grid-template-columns: 1fr; }
+    
+    }
 
     /* KONTAKT */
     #kontakt { background: var(--bg2); border-top: 1px solid var(--line); }
@@ -274,31 +288,115 @@
     <div class="section-label">Ausgewählte Projekte</div>
     <h2>Projekte, die wir kennen.</h2>
     <p class="section-intro">
-      Wir arbeiten in komplexen Projekten mit erfahrenen Partnern –
-      von Bürokomplexen bis zu Hochschulgebäuden.
+      Seit 2024 aktiv in Kliniken, Hochschulen, Industrieanlagen und Kommunalbauten –
+      mit Partnern wie Siemens, Fuchs Planungsgesellschaft und regionalen Ingenieurbüros.
     </p>
-    <div class="ref-grid">
-      <div class="ref-card">
-        <div class="ref-type">Hochschule · Frankfurt</div>
-        <h3>Campus Riedberg – Mathematik & Informatik</h3>
-        <p>WuM-Planung, Nachtragsverfolgung, LWL-Schnittstellenklärung, Datenpunktlisten für 4 ISP-Standorte. Partner: Siemens AG.</p>
+
+    <!-- Große Leitprojekte -->
+    <div class="ref-featured">
+      <div class="ref-card featured">
+        <div class="ref-type">Hochschule · Frankfurt am Main</div>
+        <h3>Campus Riedberg – Neubau Informatik &amp; Mathematik</h3>
+        <p>Werk- &amp; Montageplanung GA für einen großen Hochschulneubau der Goethe-Universität. 4 ISP-Standorte, vollständige Datenpunktlisten, LWL-Schnittstellenklärung, laufende Nachtragsverfolgung. Datenpunktstruktur CAFM-konform nach DIN SPEC 91400.</p>
+        <div class="ref-tags">
+          <span class="ref-tag">W&amp;M-Planung</span>
+          <span class="ref-tag">Datenpunktlisten</span>
+          <span class="ref-tag">BACnet</span>
+          <span class="ref-tag">Nachtragsverfolgung</span>
+          <span class="ref-tag">CAFM · DIN SPEC 91400</span>
+          <span class="ref-tag">laufend</span>
+        </div>
+        <div class="ref-partner">Partner: Siemens AG</div>
       </div>
-      <div class="ref-card">
-        <div class="ref-type">Bürokomplex · Düsseldorf</div>
-        <h3>YORCKS – Yorckstraße 19–29</h3>
-        <p>GA/MSR-Nachtrag Rauchabzugsanlage (TROX BVW-A), Kabelberechnung, Nachtrag-Leistungsverzeichnis. Partner: ABG Real Estate Group.</p>
-      </div>
-      <div class="ref-card">
-        <div class="ref-type">Büropark · Essen</div>
-        <h3>Büropark an der Gruga</h3>
-        <p>Vollständige GA/MSR-Fachplanung und Ausschreibung, GAEB-LV, Feldgeräteinventar, Angebotsvergleich (Siemens vs. Schneider Electric).</p>
-      </div>
-      <div class="ref-card">
-        <div class="ref-type">Industrie · Frankfurt</div>
-        <h3>Fresenius SE – Brandschutzrenovierung</h3>
-        <p>Dokumentationspaketierung BSK/RA, Mängelprotokollierung (17 Positionen, 2-Runden-Workflow), Trennblätter-Erstellung.</p>
+      <div class="ref-card featured">
+        <div class="ref-type">Universität · Mainz</div>
+        <h3>JoGU Mainz – Geb. 1.331 SB 2–4</h3>
+        <p>Werk- &amp; Montageplanung GA für Sanierung eines Universitätsgebäudes. Vollständige Schaltschrankplanung in EPLAN P8, Datenpunktstruktur nach VDI 3814.</p>
+        <div class="ref-tags">
+          <span class="ref-tag">W&amp;M-Planung</span>
+          <span class="ref-tag">EPLAN P8</span>
+          <span class="ref-tag">Schaltschrankplanung</span>
+          <span class="ref-tag">VDI 3814</span>
+        </div>
+        <div class="ref-partner">Partner: Siemens AG &amp; ESB-Fries GmbH</div>
       </div>
     </div>
+
+    <!-- Mittlere Projekte -->
+    <div class="ref-row">
+      <div class="ref-card">
+        <div class="ref-type">Verwaltung · Bochum</div>
+        <h3>Technisches Rathaus – Tiefgarage &amp; RLT</h3>
+        <p>Mehrstufiges Projekt: Fehlersuche Lüftungsanlage, Instandsetzung Hauptschalter, vollständige Erneuerung Regelung TG UG1/OG1, RLT-Ventilatoren &amp; Jalousieklappen (laufend).</p>
+        <div class="ref-tags">
+          <span class="ref-tag">Instandsetzung</span>
+          <span class="ref-tag">Regelungstechnik</span>
+          <span class="ref-tag">RLT</span>
+        </div>
+        <div class="ref-partner">Partner: Grossglockner S.à r.l</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-type">Medizin · Fürstenfeldbruck</div>
+        <h3>AEZ Heimstättenstraße – GA Planung LPH 2–6</h3>
+        <p>Vollständige Leistungsphasen 2–6 für ein Ärztezentrum: Funktionslisten, Kostenschätzung, Leistungsbilanz, Entwurfs- und Ausführungsplanung.</p>
+        <div class="ref-tags">
+          <span class="ref-tag">LPH 2–6</span>
+          <span class="ref-tag">Funktionslisten</span>
+          <span class="ref-tag">Kostenschätzung</span>
+          <span class="ref-tag">GAEB-LV</span>
+        </div>
+        <div class="ref-partner">Partner: Ingenieurbüro PGH</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-type">Pharma · Bad Homburg</div>
+        <h3>Fresenius Kabi Lab D20 – W&amp;M-Planung</h3>
+        <p>Werk- &amp; Montageplanung für ein Pharmaunternehmen. Vollständige Dokumentation nach GMP-Anforderungen, Kabellisten, Feldgerätedokumentation.</p>
+        <div class="ref-tags">
+          <span class="ref-tag">W&amp;M-Planung</span>
+          <span class="ref-tag">GMP</span>
+          <span class="ref-tag">Dokumentation</span>
+        </div>
+        <div class="ref-partner">Partner: Siemens AG</div>
+      </div>
+    </div>
+
+    <!-- Weitere Projekte -->
+    <div class="ref-row">
+      <div class="ref-card">
+        <div class="ref-type">Bildung · Olching / München</div>
+        <h3>Gymnasium Olching – Generalsanierung</h3>
+        <p>RRX-Automationsschema und vollständige W&amp;M-Planung GA für eine Schulsanierung. Kabelpläne, Klemmenlisten, Abnahmedokumentation.</p>
+        <div class="ref-tags">
+          <span class="ref-tag">RRX-Schema</span>
+          <span class="ref-tag">W&amp;M-Planung</span>
+          <span class="ref-tag">Schule</span>
+        </div>
+        <div class="ref-partner">Partner: ESR Technik Elektrotechnik GmbH</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-type">Wohnbau · München-Schwabing</div>
+        <h3>Neubau Wohnanlage Schwabing-Freimann</h3>
+        <p>W&amp;M-Planung GA und Kabeleinzeichnungen für einen Wohnungsneubau. Vollständiges Planpaket inkl. Revisionsunterlagen.</p>
+        <div class="ref-tags">
+          <span class="ref-tag">W&amp;M-Planung</span>
+          <span class="ref-tag">Kabelplanung</span>
+          <span class="ref-tag">Wohnbau</span>
+        </div>
+        <div class="ref-partner">Partner: ESR Technik Elektrotechnik GmbH</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-type">Medizin / Klinik · Bonn</div>
+        <h3>UK Bonn – SPECT CT &amp; Zahnklinik</h3>
+        <p>Ausführungsplanung GA für eine Nuklearmedizin-Einheit sowie Entwurfsplanung LPH3 für die Zahnklinik der Uniklinik Bonn.</p>
+        <div class="ref-tags">
+          <span class="ref-tag">Ausführungsplanung</span>
+          <span class="ref-tag">LPH 3</span>
+          <span class="ref-tag">Klinik</span>
+        </div>
+        <div class="ref-partner">Partner: Fuchs Planungsgesellschaft</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
